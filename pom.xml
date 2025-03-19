@@ -15,6 +15,9 @@
         <kotlin.version>2.1.10</kotlin.version>
         <coroutines.version>1.10.1</coroutines.version>
         <junit.version>5.2.0</junit.version>
+        <jspecify.version>1.0.0</jspecify.version>
+        <error-prone.version>2.18.0</error-prone.version>
+        <nullaway.version>0.10.9</nullaway.version>
         <maven-failsafe-plugin.version>3.5.2</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
     </properties>

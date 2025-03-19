@@ -1,0 +1,11 @@
+= Useful Keyboard Shortcuts
+
+== Build
+
+Rebuild Project:: Shift Cmd F9
+
+== Split
+
+Split right:: Shift Shift "Split Right" :)
+Unsplit all:: Shift Shift "Unsplit" :)
+Switch Split Window:: Opt + Tab
