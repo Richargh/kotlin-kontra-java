@@ -6,7 +6,7 @@ Here to show how the two languages fit the link:Criteria.adoc[].
 
 == Preconditions
 
-* Install the java version from link:.sdkmanrc[] via link:https://sdkman.io/[SdkMan] by calling `sdk env use`
+* Install the java version from link:.sdkmanrc[] via link:https://sdkman.io/[SdkMan] by calling `sdk env`
 
 == Usage
 
