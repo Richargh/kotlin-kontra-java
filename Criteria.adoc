@@ -1,9 +1,21 @@
 = Criteria
 
 * [ ] Code reads like domain prose
+
 * [ ] Compile-time safety
+** [ ] Null in Java
+** [ ] Null in Kotlin
+
 * [ ] Good module system or approximation
+** [ ] Pick: JPMS
+** [ ] Or: Kotlin
+** [ ] Add: link:ArchUnit-Example.adoc[ArchUnit]
+
 * [ ] Concise
+
 * [ ] Interoperability with platform
+
 * [ ] Advanced Concurrency
+** [ ] Java Threads
+** [ ] Kotlin Coroutines
 ** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
