@@ -14,6 +14,7 @@
 * [ ] Concise
 
 * [ ] Interoperability with platform
+** [ ] Using Java Libraries from Kotlin
 
 * [ ] Advanced Concurrency
 ** [ ] Java Threads
