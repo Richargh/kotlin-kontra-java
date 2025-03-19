@@ -1,4 +1,9 @@
 = Criteria
 
-* [ ] checked
-** [ ] Bla
+* [ ] Code reads like domain prose
+* [ ] Compile-time safety
+* [ ] Good module system or approximation
+* [ ] Concise
+* [ ] Interoperability with platform
+* [ ] Advanced Concurrency
+** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
