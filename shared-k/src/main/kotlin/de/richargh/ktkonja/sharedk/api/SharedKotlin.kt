@@ -1,4 +1,4 @@
-package de.richargh.ktkonja.sharedk
+package de.richargh.ktkonja.sharedk.api
 
 class SharedKotlin {
     fun speak() = "Kotlin"

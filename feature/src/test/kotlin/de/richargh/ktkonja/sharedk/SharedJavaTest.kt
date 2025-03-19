@@ -1,6 +1,6 @@
 package de.richargh.ktkonja.sharedk
 
-import de.richargh.ktkonja.sharedj.SharedJava
+import de.richargh.ktkonja.sharedj.api.SharedJava
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

@@ -1,7 +1,7 @@
 package de.richargh.ktkonja.feature;
 
-import de.richargh.ktkonja.sharedj.SharedJava;
-import de.richargh.ktkonja.sharedk.SharedKotlin;
+import de.richargh.ktkonja.sharedj.api.SharedJava;
+import de.richargh.ktkonja.sharedk.api.SharedKotlin;
 
 import java.util.List;
 
