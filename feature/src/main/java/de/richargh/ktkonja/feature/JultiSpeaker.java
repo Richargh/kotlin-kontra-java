@@ -8,7 +8,8 @@ import java.util.List;
 public class JultiSpeaker {
     List<String> speak(){
         return List.of(
-                new SharedJava().speak(),
-                new SharedKotlin().speak());
+                new SharedKotlin().speak(),
+                new SharedJava().speak()
+        );
     }
 }

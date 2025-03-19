@@ -8,6 +8,7 @@ class SharedJavaTest {
     @Test
     fun `testKonja testee`() {
         val testee = SharedJava()
-        assertThat(testee.speak()).isEqualTo("asd")
+
+        assertThat(testee.speak()).isEqualTo("Java")
     }
 }

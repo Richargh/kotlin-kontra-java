@@ -8,6 +8,6 @@ class KultiSpeakerTest {
     fun testBar() {
         val testee = KultiSpeaker()
 
-        assertThat(testee.speak()).isEqualTo("asd")
+        assertThat(testee.speak()).containsExactly("Kotlin", "Java")
     }
 }

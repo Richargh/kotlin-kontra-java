@@ -8,7 +8,8 @@ class JultiSpeakerTest {
     @Test
     fun `foo test`() {
         val testee = JultiSpeaker()
-        assertThat(testee.speak()).isEqualTo("asd")
+
+        assertThat(testee.speak()).containsExactly("Kotlin", "Java")
     }
 
 }

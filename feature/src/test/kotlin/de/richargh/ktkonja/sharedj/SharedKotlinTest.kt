@@ -8,6 +8,7 @@ class SharedKotlinTest {
     @Test
     fun `testKonja testee`() {
         val testee = SharedKotlin()
-        assertThat(testee.speak()).isEqualTo("asd")
+
+        assertThat(testee.speak()).isEqualTo("Kotlin")
     }
 }

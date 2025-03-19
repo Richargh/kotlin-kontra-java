@@ -6,8 +6,8 @@ import de.richargh.ktkonja.sharedk.SharedKotlin
 class KultiSpeaker {
     fun speak(): List<String> {
         return listOf(
-            SharedJava().speak(),
-            SharedKotlin().speak()
+            SharedKotlin().speak(),
+            SharedJava().speak()
         )
     }
 }
