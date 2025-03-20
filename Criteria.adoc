@@ -1,22 +1,35 @@
 = Criteria
 
+* [ ] Concise
+** [ ] records and data classes
+** [ ] classes
+** [ ] Trailing closures
+
 * [ ] Code reads like domain prose
+** [ ] Tests
+** [ ] Classes
+** [ ] Operators, extensions and footguns
+** [ ] Immutability
 
 * [ ] Compile-time safety
 ** [ ] Null in Java
+*** [ ] (ternary) expressions
 ** [ ] Null in Kotlin
+*** [ ] Expressions
+** [ ] DSLs, Builders
 
 * [ ] Good module system or approximation
-** [ ] Pick: JPMS
-** [ ] Or: Kotlin
-** [ ] Add: link:ArchUnit-Example.adoc[ArchUnit]
-
-* [ ] Concise
+** Visibility
+** Module System
+*** [ ] Pick: JPMS
+*** [ ] Or: Kotlin
+*** [ ] Add: link:ArchUnit-Example.adoc[ArchUnit]
 
 * [ ] Interoperability with platform
-** [ ] Using Java Libraries from Kotlin
+** [ ] Problems at the edge
+** [ ] Map, List
 
 * [ ] Advanced Concurrency
 ** [ ] Java Threads
-** [ ] Kotlin Coroutines
+** [ ] Kotlin Coroutines with suspend
 ** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
