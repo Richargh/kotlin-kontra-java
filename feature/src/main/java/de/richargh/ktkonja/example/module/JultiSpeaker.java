@@ -1,4 +1,4 @@
-package de.richargh.ktkonja.feature;
+package de.richargh.ktkonja.example.module;
 
 import de.richargh.ktkonja.sharedj.api.SharedJava;
 import de.richargh.ktkonja.sharedk.api.SharedKotlin;
