@@ -1,4 +1,4 @@
-package de.richargh.ktkonja.feature.concurrency;
+package de.richargh.ktkonja.example.concurrency;
 
 import java.time.Duration;
 import java.time.Instant;
