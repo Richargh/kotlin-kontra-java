@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class JultiSpeakerTest {
 
     @Test
-    fun `foo test`() {
+    fun `should speak Kotlin and Java`() {
         val testee = JultiSpeaker()
 
         assertThat(testee.speak()).containsExactly("Kotlin", "Java")

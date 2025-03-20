@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class SharedJavaTest {
     @Test
-    fun `testKonja testee`() {
+    fun `should speak Java`() {
         val testee = SharedJava()
 
         assertThat(testee.speak()).isEqualTo("Java")

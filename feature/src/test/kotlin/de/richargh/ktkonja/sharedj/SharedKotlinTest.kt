@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class SharedKotlinTest {
     @Test
-    fun `testKonja testee`() {
+    fun `should speak Kotlin`() {
         val testee = SharedKotlin()
 
         assertThat(testee.speak()).isEqualTo("Kotlin")

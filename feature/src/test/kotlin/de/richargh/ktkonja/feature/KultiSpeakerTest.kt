@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 class KultiSpeakerTest {
     @Test
-    fun testBar() {
+    fun `should speak Kotlin and Java`() {
         val testee = KultiSpeaker()
 
         assertThat(testee.speak()).containsExactly("Kotlin", "Java")

@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SharedJUsageTest {
     @Test
-    public void should_say_java() {
+    public void should_speak_java() {
         var testee = new SharedJava();
 
         assertThat(testee.speak()).isEqualTo("Java");
