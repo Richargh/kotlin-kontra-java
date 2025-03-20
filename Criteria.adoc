@@ -1,15 +1,9 @@
 = Criteria
 
 * [ ] Concise
-** [ ] records and data classes
 ** [ ] classes
+** [ ] records and data classes
 ** [ ] Trailing closures
-
-* [ ] Code reads like domain prose
-** [ ] Tests
-** [ ] Classes
-** [ ] Operators, extensions and footguns
-** [ ] Immutability
 
 * [ ] Compile-time safety
 ** [ ] Null in Java
@@ -18,16 +12,22 @@
 *** [ ] Expressions
 ** [ ] DSLs, Builders
 
-* [ ] Good module system or approximation
+* [ ] Interoperability with platform
+** [ ] Problems at the edge
+** [ ] Map, List
+
+* [ ] Code reads like domain prose
+** [ ] Tests
+** [ ] Classes
+** [ ] Operators, extensions and footguns
+** [ ] Immutability
+
+* [ ] Encapsulation & Information Hiding
 ** Visibility
 ** Module System
 *** [ ] Pick: JPMS
 *** [ ] Or: Kotlin
 *** [ ] Add: link:ArchUnit-Example.adoc[ArchUnit]
-
-* [ ] Interoperability with platform
-** [ ] Problems at the edge
-** [ ] Map, List
 
 * [ ] Advanced Concurrency
 ** [ ] Java Threads
