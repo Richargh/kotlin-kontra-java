@@ -1,5 +1,5 @@
 package de.richargh.ktkonja.feature
 
 fun main() {
-    println("Kotlin Sandbox")
+    println("Kotlin Movie Sandbox")
 }
