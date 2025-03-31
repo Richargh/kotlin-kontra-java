@@ -1,0 +1,134 @@
+= Final Result
+
+In the course of the comparison we'll write the following code.
+
+[cols="1,1"]
+|===
+| Java
+| Kotlin
+
+a| [source,java]
+----
+import java.util.Map;
+import org.jspecify.annotations.NonNull;
+
+public class JavaMovieSandbox {
+    public static void main(String[] args) {
+        System.out.println("Java Movie Sandbox");
+
+        Map<String, JRental> rentals = Map.of();
+        rentals.put("123", new JNewRental(new JDay(2f)));
+        var rentService = new JRentService(rentals);
+        System.out.println(rentService.amountOwed("1"));
+    }
+}
+
+class JRentService {
+    private final Map<String, JRental> rentals;
+
+    public JRentService(Map<String, JRental> rentals) {
+        this.rentals = rentals;
+    }
+
+    public float amountOwed(String rentalId) {
+        JRental rental = rentals.get(rentalId);
+        if(rental == null)
+            throw new IllegalArgumentException("Rental "+rentalId+" is missing");
+        return effectiveRentedDays(rental);
+    }
+
+    private float effectiveRentedDays(JRental rental) {
+        return switch (rental){
+            case JChildrensRental(JDay daysRented) when daysRented.compareTo(2f) > 0
+                    -> (daysRented.minus(2)).rawValue();
+            case JChildrensRental _
+                    -> 2;
+            case JNewRental(JDay daysRented)
+                    -> daysRented.times(10).rawValue();
+        };
+    }
+}
+
+record JDay(float rawValue) implements Comparable<Float> {
+    @Override
+    public int compareTo(@NonNull Float o) {
+        return Float.compare(rawValue, o);
+    }
+
+    public JDay minus(float other){
+        return new JDay(rawValue - other);
+    }
+
+    public JDay times(float other){
+        return new JDay(rawValue - other);
+    }
+}
+
+sealed interface JRental{ }
+
+record JChildrensRental(JDay daysRented) implements JRental {}
+
+record JNewRental(JDay daysRented) implements JRental {}
+----
+
+a| [source,kotlin]
+----
+/*
+
+
+*/
+fun main() {
+    println("Kotlin Movie Sandbox")
+
+    val rentals: Map<String, KRental> = mapOf()
+    rentals.put("123", KNewRental(2.days()))
+    val rentService = KRentService(rentals)
+    println(rentService.amountOwed("1"))
+}
+
+class KRentService(private val rentals: Map<String, KRental>) {
+
+    fun amountOwed(rentalId: String): Float {
+        val rental = rentals[rentalId]
+            ?: throw IllegalArgumentException("Rental '$rentalId' does not exist")
+        return effectiveRentedDays(rental).rawValue
+    }
+
+    private fun effectiveRentedDays(rental: KRental): KDay {
+        return when(rental) {
+            is KChildrensRental -> {
+                val (daysRented) = rental
+                if(daysRented > 2.days())
+                    daysRented - 2.days()
+                else
+                    2.days()
+            }
+            is KNewRental -> rental.daysRented * 10f
+        }
+    }
+}
+
+
+@JvmInline
+value class KDay(val rawValue: Float): Comparable<KDay> {
+    override fun compareTo(other: KDay): Int {
+        return rawValue.compareTo(other.rawValue)
+    }
+
+    operator fun minus(other: KDay) = KDay(rawValue - other.rawValue)
+
+    operator fun times(other: Float) = KDay(rawValue * other)
+}
+
+fun Int.days() = KDay(this.toFloat())
+
+
+sealed interface KRental
+
+data class KChildrensRental(val daysRented: KDay): KRental
+
+data class KNewRental(val daysRented: KDay): KRental
+----
+
+|===
+

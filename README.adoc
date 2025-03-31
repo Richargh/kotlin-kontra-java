@@ -4,10 +4,19 @@ Code for my talk about Kotlin kontra Java.
 
 Here to show how the two languages fit the link:Criteria.adoc[].
 
+* The approximate live coding result will look like: link:Approximate-Live-Coding-Result.adoc[]
+* Additional examples (concurrency, null at the edge in Kotlin) are in link:feature/src/main/kotlin/de/richargh/ktkonja/example/[example folders].
+* Module examples require looking in link:module-usage/[], link:shared-j/[] and link:shared-k/[].
+
 == Preconditions
 
 * Install the java version from link:.sdkmanrc[] via link:https://sdkman.io/[SdkMan] by calling `sdk env`
 
 == Usage
 
+* `./mwnw compile` to let link:https://github.com/uber/NullAway[NullAway] test for null.
 * `./mwnw test` to test
+
+== Additional information
+
+* NullAway uses link:https://github.com/google/error-prone[Google Error Prone] compiler plugin. This in turn requires java compiler internals which are nowadays hidden. The link:.mvn/jvm.config[] specifies what compiler options need to be made visible (i.e. exported).
