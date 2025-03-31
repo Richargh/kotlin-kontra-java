@@ -1,35 +1,35 @@
 = Criteria
 
 * [ ] Concise
-** [ ] classes
-** [ ] records and data classes
-** [ ] Trailing closures
+** [ ] Paving the on-ramp
+** [ ] Write a RentalService class
+** [ ] Write a Rental record/data class
+** [ ] Show trailing closures
 
 * [ ] Compile-time safety
-** [ ] Null in Java
-*** [ ] (ternary) expressions
-** [ ] Null in Kotlin
-*** [ ] Expressions
-** [ ] DSLs, Builders
+** [ ] Show DSLs (f.ex. Hotel Builders)
+** [ ] Immutability
+** [ ] Null in `amountOwed`
 
 * [ ] Interoperability with platform
-** [ ] Problems at the edge
-** [ ] Map, List
+** [ ] Show (Mutable)Map
 
 * [ ] Code reads like domain prose
 ** [ ] Tests
-** [ ] Classes
+** [ ] Switch/When Expressions in `effectiveRentedDays`
+** [ ] Identity types and value types
 ** [ ] Operators, extensions and footguns
-** [ ] Immutability
+
+''''
+
+* [ ] Advanced Concurrency
+** [ ] Java Threads
+** [ ] Kotlin Coroutines with suspend
+*** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
 
 * [ ] Encapsulation & Information Hiding
 ** Visibility
 ** Module System
 *** [ ] Pick: JPMS
 *** [ ] Or: Kotlin
-*** [ ] Add: link:ArchUnit-Example.adoc[ArchUnit]
-
-* [ ] Advanced Concurrency
-** [ ] Java Threads
-** [ ] Kotlin Coroutines with suspend
-** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
+*** [ ] Either way add: link:ArchUnit-Example.adoc[ArchUnit]
