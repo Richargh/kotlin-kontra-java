@@ -13,7 +13,7 @@ public class VirtualConcurrency {
         var begin = Instant.now();
         try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
             IntStream.range(0, 10_000).forEach(i -> {
-                executor.submit(() -> {
+                var unused = executor.submit(() -> {
                     Thread.sleep(Duration.ofSeconds(1));
                     return i;
                 });
