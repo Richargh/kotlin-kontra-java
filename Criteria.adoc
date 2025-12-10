@@ -1,35 +1,37 @@
 = Criteria
 
-* [ ] Concise
-** [ ] Paving the on-ramp
-** [ ] Write a RentalService class
-** [ ] Write a Rental record/data class
-** [ ] Show trailing closures
+== Concise
+* [ ] Paving the on-ramp
+* [ ] Write a Rental class
+* [ ] Turn the class into a record/data class
+* [ ] Write a RentalService class
+* [ ] Use pattern matching/smart cast
+* [ ] Show trailing closures
 
-* [ ] Compile-time safety
-** [ ] Show DSLs (f.ex. Hotel Builders)
-** [ ] Immutability
-** [ ] Null in `amountOwed`
+== Compile-time safety
+* [ ] Show DSLs (f.ex. Hotel Builders)
+* [ ] Immutability
+* [ ] Null in `amountOwed`
 
-* [ ] Interoperability with platform
-** [ ] Show (Mutable)Map
+== Interoperability with platform
+* [ ] Show (Mutable)Map
 
-* [ ] Code reads like domain prose
-** [ ] Tests
-** [ ] Switch/When Expressions in `effectiveRentedDays`
-** [ ] Identity types and value types
-** [ ] Operators, extensions and footguns
+== Code reads like domain prose
+* [ ] Tests
+* [ ] Switch/When Expressions in `effectiveRentedDays`
+* [ ] Identity types and value types
+* [ ] Operators, extensions and footguns
 
 ''''
 
-* [ ] Advanced Concurrency
-** [ ] Java Threads
-** [ ] Kotlin Coroutines with suspend
-*** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
+== Advanced Concurrency
+* [ ] Java Threads
+* [ ] Kotlin Coroutines with suspend
+** See also link:https://github.com/Richargh/coroutines-tornadofx-krdl-kt-sandbox[TornadoFx Coroutine Example]
 
-* [ ] Encapsulation & Information Hiding
-** Visibility
-** Module System
-*** [ ] Pick: JPMS
-*** [ ] Or: Kotlin
-*** [ ] Either way add: link:ArchUnit-Example.adoc[ArchUnit]
+== Encapsulation & Information Hiding
+* Visibility
+* Module System
+** [ ] Pick: JPMS
+** [ ] Or: Kotlin
+** [ ] Either way add: link:ArchUnit-Example.adoc[ArchUnit]
