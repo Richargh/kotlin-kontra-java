@@ -1,0 +1,137 @@
+<templateSet group="kotlin-kontra-java">
+  <template name="jjrental_record" value="record JRental(JRentalId id, String type, JDay rentedDays)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="jjservice" value="class JRentalService {&#10;    private final java.util.Map&lt;JRentalId, JRental&gt; rentals;&#10;&#10;    JRentalService(Map&lt;JRentalId, JRental&gt; rentals) {&#10;        this.rentals = rentals;&#10;    }&#10;&#10;    float amountOwed(JRentalId id){&#10;        JRental rental = rentals.get(id);&#10;        return effectiveRentedDays(rental);&#10;    }&#10;&#10;    private float effectiveRentedDays(JRental rental){&#10;        return switch (rental.type()){&#10;            case &quot;regular&quot; -&gt; rental.daysRented().rawValue() * 2f;&#10;            default -&gt; rental.daysRented().rawValue() * 10f;&#10;        };&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_advanced" value="sealed interface JRental {&#10;}&#10;&#10;record JRegularRental(JRentalId id, JDay daysRented) implements JRental{}&#10;record JNewRental(JRentalId id, JDay daysRented) implements JRental{}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_class" value="class JRental {&#10;&#10;    private final String id;&#10;    private final String type;&#10;    private final Float daysRented;&#10;&#10;    JRental(String id, String type, Float daysRented){&#10;        this.id = id;&#10;        this.type = type;&#10;        this.daysRented = daysRented;&#10;    }&#10;&#10;    public String id() {&#10;        return id;&#10;    }&#10;&#10;    public String type() {&#10;        return type;&#10;    }&#10;&#10;    public Float daysRented(){&#10;        return this.daysRented;&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="jjday_record" value="record JDay(float rawValue){&#10;&#10;    JDay {&#10;        assert rawValue &gt;= 0;&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="kkday" value="data class KDay(val rawValue: Float){&#10;&#10;    init {&#10;        require(rawValue &gt;= 0)&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="kkservice" value="class KRentalService(private val rentals: Map&lt;KRentalId, KRental&gt;) {&#10;&#10;    fun amountOwed(id: KRentalId): Float {&#10;        val rental: KRental = rentals.get(id)&#10;        return effectiveRentedDays(rental)&#10;    }&#10;&#10;    private fun effectiveRentedDays(rental: KRental): Float {&#10;        return when(rental.type) {&#10;            &quot;regular&quot; -&gt; rental.daysRented.rawValue * 2f&#10;            &quot;new&quot; -&gt; rental.daysRented.rawValue * 10f&#10;        }&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_class" value="class KRental(val id: String, val type: String, val daysRented: Float)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_property_get" value="// pure get property&#10;val weeksRented: Float&#10;    get() = this.days / 7&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_property_set" value="// get and set property&#10;var monthsRented: String&#10;    get() = this.days / 30&#10;    set(value) {&#10;        this.days = value * 30&#10;    }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_advanced" value="sealed interface KRental&#10;&#10;data class KRegularRental(val id: KRentalId, val daysRented: KDay): KRental&#10;data class KNewRental(val id: KRentalId, val daysRented: KDay): KRental" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="kkday_math" value="operator fun plus(other: KDay) = KDay(rawValue + other.rawValue)&#10;&#10;operator fun times(other: KDay) = KDay(rawValue * other.rawValue)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
+  <template name="kkday_extend" value="fun Float.days() = KDay(this)&#10;fun Int.days() = KDay(this.toFloat())" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_builder" value="class JRentalBuilder {&#10;    // assumption here is that this is for test data initiation&#10;    String id = &quot;1&quot;;&#10;    String type = &quot;regular&quot;;&#10;    Float daysRented = 0.0f;&#10;&#10;    JRental build(){&#10;        return new JRental(id, type, daysRented);&#10;    }&#10;&#10;    static JRental aRental(java.util.function.Consumer&lt;JRentalBuilder&gt; init){&#10;        var builder = new JRentalBuilder();&#10;        init.accept(builder);&#10;&#10;        return builder.build();&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_builder" value="class KRentalBuilder {&#10;    // assumption here is that this builder would be for test data usage&#10;    var type: String = &quot;regular&quot;&#10;    var daysRented: Float = 0.0f&#10;&#10;    fun build() = KRental(type, daysRented)&#10;}&#10;&#10;fun aRental(init: KRentalBuilder.() -&gt; Unit): KRental {&#10;    val builder = KRentalBuilder();&#10;    init(builder)&#10;    return builder.build()&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_builder_property" value="var daysRented: Float = 0.0f&#10;    set(value) {&#10;        // check invariants&#10;        require(value &gt; 0.0f)&#10;        field = value&#10;    }&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_init" value="var rental = new JRental(&quot;1&quot;, &quot;regular&quot;, 1.0f);" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_access" value="var rentalType = rental.type();&#10;rental.setDaysRented(2.0f);" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_init" value="val rental = KRental(&quot;id&quot;, &quot;regular&quot;, 1.0f)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_access" value="val rentalType = rental.type&#10;rental.daysRented = 2.0f" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_wither" value="val newRental = rental.copy(&#10;    type = &quot;childrens&quot;&#10;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_wither" value="// once derived record creation JEP is finished&#10;var newRental = rental with {&#10;    type = &quot;childrens&quot;;&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_compare" value="var regularRental = new JRental(&quot;1&quot;, &quot;regular&quot;, 1.0f);&#10;var childrensRental = new JRental(&quot;1&quot;, &quot;childrens&quot;, 1.0f);&#10;System.out.println(&quot;Is rental is equal when values match? &quot;+rental.equals(regularRental));&#10;System.out.println(&quot;Is rental is equal when values do not match? &quot;+rental.equals(childrensRental));" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_compare" value="val regularRental = KRental(&quot;1&quot;, &quot;regular&quot;, 1.0f)&#10;val childrensRental = KRental(&quot;1&quot;, &quot;childrens&quot;, 1.0f)&#10;println(&quot;Is rental is equal when values match? ${rental == regularRental}&quot;)&#10;println(&quot;Is rental is equal when values do not match? ${rental == childrensRental}&quot;)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="jjhotel_dsl" value="de.richargh.ktkonja.dsl.JHotel newHotel = de.richargh.ktkonja.dsl.HotelDsl.aHotel(hotel -&gt; {&#10;    hotel.name = &quot;Sheraton&quot;;&#10;    hotel.withRoom(room -&gt; {&#10;        room.number = 42;&#10;        room.withBed(bed -&gt; {&#10;            bed.type = de.richargh.ktkonja.dsl.JBedType.Queen;&#10;        });&#10;    });&#10;});" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="kkrental_id" value="data class KRentalId(val rawValue: String)&#10;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_TOPLEVEL" value="true" />
+    </context>
+  </template>
+  <template name="jjrental_id" value="record JRentalId(String rawValue){&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

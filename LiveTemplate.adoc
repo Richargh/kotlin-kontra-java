@@ -1,0 +1,120 @@
+= Good Live Templates to have for Coding
+
+link:https://www.jetbrains.com/help/idea/creating-and-editing-live-templates.html[Live Templates] are a cool IntelliJ feature that let you insert custom code quickly.
+This demo does not need any of the more "live" features :), no $VARIABLES$ needed.
+
+Simply open the templates `⌘Cmd + ,`, then create a live template group `kotlin-kontra-java` and inside that group the templates you want.
+
+== Fixed Live Templates
+
+A couple of live templates are located inside link:live-templates/[].
+You can copy the xml to your link:https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory[configuration directory], e.g. `~/Library/Application Support/JetBrains/<product><version>/templates/`.
+
+Or you can build your own from the following examples.
+
+== Live Template Examples
+
+For example the following is handy because it is a lot of effort to create an entity with java classes:
+
+.jjrental_class; applicable in Java: declaration
+[source,java]
+----
+class JRental {
+
+    private final String id;
+    private final String type;
+    private final Float daysRented;
+
+    JRental(String id, String type, Float daysRented){
+        this.id = id;
+        this.type = type;
+        this.daysRented = daysRented;
+    }
+
+    public String id() {
+        return id;
+    }
+
+    public String type() {
+        return type;
+    }
+
+    public Float daysRented(){
+        return this.daysRented;
+    }
+}
+----
+
+Later it can be shortened to:
+
+.jjrental_advanced; applicable in Java: declaration
+[source,java]
+----
+sealed interface JRental { }
+
+record JRegularRental(JRentalId id, JDay daysRented) implements JRental { }
+record JNewRental(JRentalId id, JDay daysRented) implements JRental { }
+----
+
+The type can be used in a service:
+
+.jjservice; applicable in Java: declaration
+[source,java]
+----
+class JRentalService {
+    private final java.util.Map<JRentalId, JRental> rentals;
+
+    JRentalService(Map<JRentalId, JRental> rentals) {
+        this.rentals = rentals;
+    }
+
+    float amountOwed(JRentalId id){
+        JRental rental = rentals.get(id);
+        return effectiveRentedDays(rental);
+    }
+
+    private float effectiveRentedDays(JRental rental){
+        return switch (rental.type()){
+            case "regular" -> rental.daysRented().rawValue() * 2f;
+            default -> rental.daysRented().rawValue() * 10f;
+        };
+    }
+}
+----
+
+or in a Kotlin service:
+
+.kkservice, applicable in Kotlin: top-level
+[source,kotlin]
+----
+class KRentalService(private val rentals: Map<KRentalId, KRental>) {
+
+    fun amountOwed(id: KRentalId): Float {
+        val rental: KRental = rentals.get(id)
+        return effectiveRentedDays(rental)
+    }
+
+    private fun effectiveRentedDays(rental: KRental): Float {
+        return when(rental.type) {
+            "regular" -> rental.daysRented.rawValue * 2f
+            "new" -> rental.daysRented.rawValue * 10f
+        }
+    }
+}
+----
+
+But you can also use the templates to show a DSL in Java
+
+.jjhotel_dsl; applicable in Java: statement
+[source,java]
+----
+de.richargh.ktkonja.dsl.JHotel newHotel = de.richargh.ktkonja.dsl.HotelDsl.aHotel(hotel -> {
+    hotel.name = "Sheraton";
+    hotel.withRoom(room -> {
+        room.number = 42;
+        room.withBed(bed -> {
+            bed.type = de.richargh.ktkonja.dsl.JBedType.Queen;
+        });
+    });
+});
+----
