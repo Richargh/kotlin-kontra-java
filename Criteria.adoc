@@ -1,26 +1,37 @@
 = Criteria
 
-== Concise
+== Code reads like domain prose Part 1
+* [ ] Tests
+
+== Concise Part1
 * [ ] Paving the on-ramp
 * [ ] Write a Rental class
 * [ ] Turn the class into a record/data class
-* [ ] Write a RentalService class
-* [ ] Use pattern matching/smart cast
-* [ ] Show trailing closures
+** [ ] Read visibility differences
+** [ ] Write possibility differences
 
-== Compile-time safety
+== Compile-time safety Part1
+* [ ] Add type-safety JRentalId, JDay class
 * [ ] Show DSLs (f.ex. Hotel Builders)
 * [ ] Immutability
-* [ ] Null in `amountOwed`
 
 == Interoperability with platform
 * [ ] Show (Mutable)Map
 
-== Code reads like domain prose
-* [ ] Tests
+== Compile-time safety Part2
+* [ ] Null in `amountOwed`
+
+== Concise Part2
+* [ ] Write a RentalService class
+* [ ] Method expression body
+* [ ] Refactor to advanced rental
+* [ ] Use pattern matching/smart cast
+
+== Code reads like domain prose Part 2
 * [ ] Switch/When Expressions in `effectiveRentedDays`
-* [ ] Identity types and value types
+* [ ] Switch/When Guards with `when (xyz)` and `if xyz`
 * [ ] Operators, extensions and footguns
+* [ ] Identity types and value types
 
 ''''
 
