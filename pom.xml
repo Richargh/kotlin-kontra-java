@@ -15,7 +15,7 @@
         <kotlin.version>2.4.0</kotlin.version>
         <kotlinx.datetime.version>0.8.0</kotlinx.datetime.version>
         <coroutines.version>1.11.0</coroutines.version>
-        <jackson.version>2.18.3</jackson.version>
+        <jackson.version>2.22.0</jackson.version>
         <junit.version>5.12.1</junit.version>
         <assertj.version>3.27.7</assertj.version>
         <jspecify.version>1.0.0</jspecify.version>
