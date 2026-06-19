@@ -17,7 +17,7 @@
         <coroutines.version>1.11.0</coroutines.version>
         <jackson.version>2.18.3</jackson.version>
         <junit.version>5.12.1</junit.version>
-        <assertj.version>3.27.3</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <jspecify.version>1.0.0</jspecify.version>
         <error-prone.version>2.47.0</error-prone.version>
         <nullaway.version>0.13.6</nullaway.version>
