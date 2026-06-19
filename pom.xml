@@ -19,8 +19,8 @@
         <junit.version>5.12.1</junit.version>
         <assertj.version>3.27.3</assertj.version>
         <jspecify.version>1.0.0</jspecify.version>
-        <error-prone.version>2.18.0</error-prone.version>
-        <nullaway.version>0.10.9</nullaway.version>
+        <error-prone.version>2.47.0</error-prone.version>
+        <nullaway.version>0.13.6</nullaway.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
         <maven-failsafe-plugin.version>3.5.2</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
@@ -144,6 +144,7 @@
                         <compilerArgs>
                             <arg>--enable-preview</arg>
                             <arg>-XDcompilePolicy=simple</arg>
+                            <arg>--should-stop=ifError=FLOW</arg>
                             <arg>
                                 -Xplugin:ErrorProne
                                 -Xep:NullAway:ERROR
