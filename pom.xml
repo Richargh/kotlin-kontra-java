@@ -19,7 +19,8 @@
         <junit.version>6.1.0</junit.version>
         <assertj.version>3.27.7</assertj.version>
         <jspecify.version>1.0.0</jspecify.version>
-        <error-prone.version>2.47.0</error-prone.version>
+        <kotest-assertions.version>6.2.1</kotest-assertions.version>
+        <error-prone.version>2.50.0</error-prone.version>
         <nullaway.version>0.13.6</nullaway.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-failsafe-plugin.version>3.5.6</maven-failsafe-plugin.version>
@@ -92,6 +93,12 @@
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.kotest</groupId>
+                <artifactId>kotest-assertions-core-jvm</artifactId>
+                <version>${kotest-assertions.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
