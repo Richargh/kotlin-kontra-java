@@ -7,7 +7,7 @@ package de.richargh.ktkonja.dsl
 @Target(AnnotationTarget.CLASS, AnnotationTarget.TYPE)
 annotation class TvSeriesMarker
 
-fun tvSeries(init: KTvSeriesBuilder.() -> Unit): KTvSeries {
+fun ktvSeries(init: KTvSeriesBuilder.() -> Unit): KTvSeries {
     return KTvSeriesBuilder().apply(init)._build()
 }
 
@@ -15,42 +15,42 @@ fun tvSeries(init: KTvSeriesBuilder.() -> Unit): KTvSeries {
 class KTvSeriesBuilder {
     var name: String = "DORK"
 
-    private val seasons = mutableListOf<KSeason>()
+    private val seasons = mutableListOf<KTvSeason>()
 
-    fun season(init: KSeasonBuilder.() -> Unit) {
-        val season = KSeasonBuilder().apply(init)._build()
+    fun season(init: KTvSeasonBuilder.() -> Unit) {
+        val season = KTvSeasonBuilder().apply(init)._build()
         seasons.add(season)
     }
 
     fun _build() = KTvSeries(name, seasons)
 }
 
-data class KTvSeries(val name: String, val seasons: List<KSeason>)
+data class KTvSeries(val name: String, val seasons: List<KTvSeason>)
 
 @TvSeriesMarker
-class KSeasonBuilder {
+class KTvSeasonBuilder {
     var tagLine: String = "Everything is borken"
 
-    private val episodes = mutableListOf<KEpisode>()
+    private val episodes = mutableListOf<KTvEpisode>()
 
-    fun episode(init: KEpisodeBuilder.() -> Unit) {
-        val episode = KEpisodeBuilder().apply(init)._build()
+    fun episode(init: KTvEpisodeBuilder.() -> Unit) {
+        val episode = KTvEpisodeBuilder().apply(init)._build()
         episodes.add(episode)
     }
 
-    fun _build() = KSeason(tagLine, episodes)
+    fun _build() = KTvSeason(tagLine, episodes)
 }
 
-data class KSeason(val tagLine: String, val episodes: List<KEpisode>)
+data class KTvSeason(val tagLine: String, val episodes: List<KTvEpisode>)
 
 @TvSeriesMarker
-class KEpisodeBuilder {
+class KTvEpisodeBuilder {
     var name: String = "Holy Moly"
-    var type: KEpisodeType = KEpisodeType.Drama
+    var type: KTvEpisodeType = KTvEpisodeType.Drama
 
-    fun _build() = KEpisode(type)
+    fun _build() = KTvEpisode(name, type)
 }
 
-data class KEpisode(val type: KEpisodeType)
+data class KTvEpisode(val name: String, val type: KTvEpisodeType)
 
-enum class KEpisodeType {Drama, Comedy}
+enum class KTvEpisodeType {Drama, Comedy}
